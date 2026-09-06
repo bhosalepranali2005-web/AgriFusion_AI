@@ -30,14 +30,27 @@ Backend: FastAPI, Uvicorn (Asynchronous REST API)
 Computer Vision & ML: PyTorch, Torchvision (MobileNetV2), NumPy, Pillow
 Meteorology & IoT Integration: Open-Meteo REST API, Browser Geolocation API
 
+
+---
 ## Verification & Test Matrix
-Test Case	Disease Target	Microclimate Conditions	System Action	Agronomic Rationale
-TC-01	Tomato Leaf Curl Virus	33.0∘C, 42% RH (Hot & Dry)	AUTO CONFIRMED	High temperatures and low humidity accelerate whitefly vector migration.
-TC-02	Tomato Leaf Curl Virus	15.0 ∘C, 90% RH (Cool & Wet)	FLAGGED FOR KVK REVIEW	Microclimate contradicts virus vector ecology; stops incorrect pesticide application.
-TC-03	Early Blight	26.5∘C, 85% RH (Warm & Humid)	AUTO CONFIRMED	Target-board rings align with high spore development favorability.
-TC-04	Early Blight	15.0∘C, 50% RH (Cool & Dry)	FLAGGED FOR KVK REVIEW	Cold, dry conditions halt fungal sporulation; routes to expert review.
-TC-05	Late Blight	16.0∘C, 94% RH (Cool & Saturated)	AUTO CONFIRMED	Water-soaked rot matches cool, saturated canopy conditions.
-TC-06	Late Blight	32.0∘C, 40% RH (Hot & Arid)	FLAGGED FOR KVK REVIEW	Heat arrests Phytophthora propagation; prevents wasteful chemical expenditure.
+
+```text
+
+Test | Case	| Disease | Target	| Microclimate Conditions	| System Action |	Agronomic Rationale
+
+TC-01 |	Tomato Leaf Curl Virus	| 33.0∘C, 42% RH (Hot & Dry)	| AUTO CONFIRMED	| High temperatures and low humidity accelerate whitefly vector migration.
+
+TC-02	| Tomato Leaf Curl Virus	| 15.0 ∘C, 90% RH (Cool & Wet) |	FLAGGED FOR KVK REVIEW | 	Microclimate contradicts virus vector ecology; stops incorrect pesticide application.
+
+TC-03 |	Early Blight	| 26.5∘C, 85% RH (Warm & Humid) |	AUTO CONFIRMED |	Target-board rings align with high spore development favorability.
+
+TC-04 |	Early Blight	| 15.0∘C, 50% RH (Cool & Dry) |	FLAGGED FOR KVK REVIEW	| Cold, dry conditions halt fungal sporulation; routes to expert review.
+
+TC-05 |	Late Blight	| 16.0∘C, 94% RH (Cool & Saturated) |	AUTO CONFIRMED	| Water-soaked rot matches cool, saturated canopy conditions.
+
+TC-06 |	Late Blight	| 32.0∘C, 40% RH (Hot & Arid)	| FLAGGED FOR KVK REVIEW	| Heat arrests Phytophthora propagation; prevents wasteful chemical expenditure.
+
+---
 
 
 ## Local Development Setup
@@ -60,6 +73,7 @@ cd frontend
 npm install
 npm run dev
 Frontend interface runs on http://localhost:3000.
+
 
 
 ---
