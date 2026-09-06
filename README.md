@@ -23,32 +23,6 @@ TomatoGuard AI applies a **3-Layer Multimodal Decision Pipeline**:
    * **Corroborated Signals ($\ge 85\%$):** Triggers an auto-confirmed diagnosis and provides an Integrated Pest Management (IPM) advisory (irrigation delays, cultural pruning, safe pre-harvest chemical intervals).
    * **Conflicting Signals ($< 85\%$):** Intercepts automated pesticide spray guidance and flags the case to local Krishi Vigyan Kendra (KVK) plant pathologists with attached sensor telemetry.
 
----
-
-## System Architecture
-
-```text
-  [ Smartphone / Camera Capture ]      [ Field IoT Sensors / Weather API ]
-                 │                                      │
-                 ▼                                      ▼
-       MobileNetV2 Visual Engine              Microclimate Risk Engine
-       - Lesion Segmentation                  - Canopy Temp & Humidity Index
-       - Severity Metric (% Leaf Area)        - Soil Moisture Validation
-                 │                                      │
-                 └──────────────────┬───────────────────┘
-                                    ▼
-                      Multimodal Decision Gate
-                                    │
-            ┌───────────────────────┴───────────────────────┐
-            ▼                                               ▼
-   [ Corroborated Evidence ]                       [ Divergent Signals ]
-   Status: AUTO_CONFIRMED                          Status: FLAGGED_FOR_KVK_REVIEW
-   - IPM Cultural Action Plan                      - Intercepts Spray Advisory
-   - Safe Chemical Windows (PHI)                   - Dispatches Case to Extension Officer
-
-
-
-
 
 ## Tech Stack
 Frontend: Next.js 14 (React), Tailwind CSS, Lucide Icons (Mobile-First Dashboard)
@@ -86,5 +60,35 @@ cd frontend
 npm install
 npm run dev
 Frontend interface runs on http://localhost:3000.
+
+
+---
+
+## System Architecture
+
+```text
+  [ Smartphone / Camera Capture ]      [ Field IoT Sensors / Weather API ]
+                 │                                      │
+                 ▼                                      ▼
+       MobileNetV2 Visual Engine              Microclimate Risk Engine
+       - Lesion Segmentation                  - Canopy Temp & Humidity Index
+       - Severity Metric (% Leaf Area)        - Soil Moisture Validation
+                 │                                      │
+                 └──────────────────┬───────────────────┘
+                                    ▼
+                      Multimodal Decision Gate
+                                    │
+            ┌───────────────────────┴───────────────────────┐
+            ▼                                               ▼
+   [ Corroborated Evidence ]                       [ Divergent Signals ]
+   Status: AUTO_CONFIRMED                          Status: FLAGGED_FOR_KVK_REVIEW
+   - IPM Cultural Action Plan                      - Intercepts Spray Advisory
+   - Safe Chemical Windows (PHI)                   - Dispatches Case to Extension Officer
+
+
+
+
+
+
 
 
