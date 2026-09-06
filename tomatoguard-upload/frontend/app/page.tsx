@@ -1,7 +1,9 @@
-﻿'use client';
+'use client';
 
 import React, { useState, useRef } from 'react';
 import { Camera, Upload, ShieldCheck, AlertTriangle, Image as ImageIcon, ArrowRight, RefreshCw, CloudSun, MapPin, CheckCircle } from 'lucide-react';
+
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://agrifusion-ai.onrender.com';
 
 export default function Home() {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
@@ -43,7 +45,7 @@ export default function Home() {
         const lat = parseFloat(pos.coords.latitude.toFixed(2));
         const lon = parseFloat(pos.coords.longitude.toFixed(2));
         try {
-          const res = await fetch(`http://localhost:8000/api/weather-by-coords?lat=${lat}&lon=${lon}`);
+          const res = await fetch(`${API_BASE_URL}/api/weather-by-coords?lat=${lat}&lon=${lon}`);
           const data = await res.json();
           setTemp(data.temperature);
           setCanopyRH(data.humidity);
@@ -75,7 +77,7 @@ export default function Home() {
       formData.append("canopy_rh", canopyRH.toString());
       formData.append("soil_moisture", soilMoisture.toString());
 
-      const res = await fetch("http://localhost:8000/api/diagnose-image", {
+      const res = await fetch(`${API_BASE_URL}/api/diagnose-image`, {
         method: "POST",
         body: formData,
       });
@@ -83,7 +85,7 @@ export default function Home() {
       const data = await res.json();
       setResult(data);
     } catch {
-      alert("Backend unreachable. Ensure backend is running on http://localhost:8000.");
+      alert("Backend unreachable. Ensure backend is running.");
     } finally {
       setLoading(false);
     }
