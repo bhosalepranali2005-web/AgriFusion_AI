@@ -34,7 +34,6 @@ Meteorology & IoT Integration: Open-Meteo REST API, Browser Geolocation API
 ---
 ## Verification & Test Matrix
 
-```text
 
 Test | Case	| Disease | Target	| Microclimate Conditions	| System Action |	Agronomic Rationale
 
